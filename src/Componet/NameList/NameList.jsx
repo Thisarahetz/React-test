@@ -92,9 +92,8 @@ function NameList(){
       console.log('button clicked');
     };
 
-    const addUser = () =>{
+    const addUserHandlare = () =>{
       const newUser =  {
-        id = 3,
         "name": {
             "title": "mr",
             "first": "brad",
@@ -114,17 +113,20 @@ function NameList(){
               "picture": {
                 "medium": "https://randomuser.me/api/portraits/med/men/75.jpg",
               }           
-    },
+    };
+    setnameList((nameList) => nameList.concat(newUser));
+    //setnameList(nameList.concat(newUser));
+  };
     return(
       <React.Fragment>
         <div className='btn'>
-          <button className="btn btn-group-lg btn-outline-primary bg-2" onClick={addUser}>add Name</button>
+          <button className="btn btn-group-lg btn-outline-primary bg-2" onClick={addUserHandlare}>add Name</button>
         </div>
         <ul className="list-group-item-danger">{nameListComponet()}</ul>
       </React.Fragment>
   );
 
-    }
+    
 
 }
 
