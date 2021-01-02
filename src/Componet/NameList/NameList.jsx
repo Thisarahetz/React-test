@@ -129,6 +129,14 @@ function NameList(){
         <ul className="list-group-item-danger">{nameListComponet()}</ul>
       </React.Fragment>
   );
+  return(
+    <React.Fragment>
+      <div className='btn'>
+        <button className="btn btn-group-lg btn-outline-primary bg-2" onClick={addUserHandlare}>add Name</button>
+      </div>
+      <ul className="list-group-item-danger">{nameListComponet()}</ul>
+    </React.Fragment>
+);
 
     
 
