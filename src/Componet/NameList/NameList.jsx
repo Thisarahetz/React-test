@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import NameList2 from './NameList2';
 
 
@@ -73,6 +73,18 @@ function NameList(){
 }]);
    // const nameList=[]; //declare array
 
+useEffect(() =>{
+    //console.log('RENder method Called');
+    fetch("https://randomuser.me/api").then((Response) => {
+      //console.log(Response);
+      return Response.json();
+    }).then(ResponseData =>{
+      //console.log(ResponseData)
+      setnameList(nameList >= [...nameList, ResponseData.results[0]]);
+    });
+},[]);
+
+
     const nameListComponet=()=>{
         return nameList.map((aname) => {
             return(
@@ -88,12 +100,13 @@ function NameList(){
         });
      
     };
-    const addUser=() =>{
-      console.log('button clicked');
-    };
+   // const addUser=() =>{
+    //  console.log('button clicked');
+   // };
 
     const addUserHandlare = () =>{
       const newUser =  {
+        id:new Date(),
           "name": {
           "title": "mr",
           "first": "braasdsadsd",
@@ -129,14 +142,6 @@ function NameList(){
         <ul className="list-group-item-danger">{nameListComponet()}</ul>
       </React.Fragment>
   );
-  return(
-    <React.Fragment>
-      <div className='btn'>
-        <button className="btn btn-group-lg btn-outline-primary bg-2" onClick={addUserHandlare}>add Name</button>
-      </div>
-      <ul className="list-group-item-danger">{nameListComponet()}</ul>
-    </React.Fragment>
-);
 
     
 
