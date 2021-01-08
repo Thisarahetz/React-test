@@ -3,7 +3,7 @@ import NameList2 from './NameList2';
 
 
 function NameList(){
-
+  const[loadData,setLoaddata]=useState(new Date());
   const[nameList,setnameList]=useState([{
     "name": {
         "title": "mr",
@@ -75,14 +75,14 @@ function NameList(){
 
 useEffect(() =>{
     //console.log('RENder method Called');
-    fetch("https://randomuser.me/api").then((Response) => {
+    fetch("https://randomuser.me/api").then((response) => {
       //console.log(Response);
-      return Response.json();
-    }).then(ResponseData =>{
-      //console.log(ResponseData)
-      setnameList(nameList >= [...nameList, ResponseData.results[0]]);
+      return response.json();
+    }).then(responseData =>{
+      //console.log(responseData)
+      setnameList((nameList)=>[...nameList,responseData.results[0]]);
     });
-},[]);
+},[loadData]);
 
 
     const nameListComponet=()=>{
@@ -99,41 +99,41 @@ useEffect(() =>{
                 );
         });
      
-    };
+    }
    // const addUser=() =>{
     //  console.log('button clicked');
    // };
 
     const addUserHandlare = () =>{
-      const newUser =  {
-        id:new Date(),
-          "name": {
-          "title": "mr",
-          "first": "braasdsadsd",
-          "last": "thisara"
-        },
-        "location": {
-          "street": "9278 new road",
-          "city": "kilcoole",
-          "state": "waterford",
-      },
-      "email": "brad.gibson@example.com",
-      "dob": {
-        "date": "1993-07-20T09:44:18.674Z",
-        "age": 26
-      },
-      "picture": {
-        "large": "https://randomuser.me/api/portraits/men/76.jpg",
-        "medium": "https://randomuser.me/api/portraits/med/men/76.jpg",
-        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/75.jpg"
-      },
-      
+      // const newUser =  {
+      //   id:new Date(),
+      //     "name": {
+      //     "title": "mr",
+      //     "first": "braasdsadsd",
+      //     "last": "thisara"
+      //   },
+      //   "location": {
+      //     "street": "9278 new road",
+      //     "city": "kilcoole",
+      //     "state": "waterford",
+      // },
+      // "email": "brad.gibson@example.com",
+      // "dob": {
+      //   "date": "1993-07-20T09:44:18.674Z",
+      //   "age": 26
+      // },
+      // "picture": {
+      //   "large": "https://randomuser.me/api/portraits/men/76.jpg",
+      //   "medium": "https://randomuser.me/api/portraits/med/men/76.jpg",
+      //   "thumbnail": "https://randomuser.me/api/portraits/thumb/men/75.jpg"
+      // },
+      setLoaddata(new Date());
       
                 
     };
-    setnameList((nameList) => nameList.concat(newUser));
+   // setnameList((nameList) => nameList.concat(newUser));
     //setnameList(nameList.concat(newUser));
-  };
+  
     return(
       <React.Fragment>
         <div className='btn'>
@@ -144,7 +144,6 @@ useEffect(() =>{
   );
 
     
-
 }
 
 export default NameList;
