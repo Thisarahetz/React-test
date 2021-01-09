@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './Navbar';
 import Home from './Home';
 import Namelist from './Componet/NameList/NameList';
+import NameDB from './Componet/NameDB';
 
 function App() {
 
@@ -11,7 +12,8 @@ function App() {
   const link="google.com";
   return (
     <div className="">
-      <Namelist></Namelist>
+      {/* <Namelist></Namelist> */}
+      <NameDB></NameDB>
       <Navbar></Navbar>
       <Home></Home>
       <div className="">

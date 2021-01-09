@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import NameList2 from './NameList2';
+import axios from 'axios';
 
 
 function NameList(){
@@ -83,6 +84,20 @@ useEffect(() =>{
       setnameList((nameList)=>[...nameList,responseData.results[0]]);
     });
 },[loadData]);
+
+
+
+  // useEffect(() =>{
+  //   //console.log('RENder method Called');
+  //   const ALL_USERS_REST_API_URL = 'http://localhost:8080/user/all';
+  //   console.log(axios.get(ALL_USERS_REST_API_URL));
+  //   //fetch("http://localhost:8080/User/find/2").then((respons) => {
+  //   //  
+  //  // }
+  //  // )
+  // }
+
+  // )
 
 
     const nameListComponet=()=>{
