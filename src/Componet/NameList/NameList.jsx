@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import NameList2 from './NameList2';
-import axios from 'axios';
+
 
 
 function NameList(){

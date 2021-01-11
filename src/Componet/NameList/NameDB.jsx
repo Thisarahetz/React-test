@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react';
-import NameList3 from './NameList/NameList3';
+import NameList3 from './NameList3';
 
 
 function MyList() {

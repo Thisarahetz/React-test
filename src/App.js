@@ -1,8 +1,11 @@
 import './App.css';
 import Navbar from './Navbar';
-import Home from './Home';
+import Home from './Componet/Home/Home';
 import Namelist from './Componet/NameList/NameList';
-import NameDB from './Componet/NameDB';
+import NameDB from './Componet/NameList/NameDB';
+import Nevbar from './Componet/Hader/Nevbar';
+import About from './Componet/About/About';
+import {BrowserRouter,Route,Switch} from 'react-router-dom';
 
 function App() {
 
@@ -11,10 +14,27 @@ function App() {
   //const person={name:'thisara', age:30};
   const link="google.com";
   return (
-    <div className="">
-      {/* <Namelist></Namelist> */}
-      <NameDB></NameDB>
-      <Navbar></Navbar>
+    <div className="container">
+      <BrowserRouter>
+      <Nevbar></Nevbar>
+      <Switch>
+              <Route path="/home"><Home></Home></Route>
+              <Route path="/about"><About></About></Route>
+              <Route path="/namelist"><Namelist></Namelist></Route>
+              <Route path="/"><About></About></Route>
+              
+      </Switch>
+      
+      
+      
+      
+
+      </BrowserRouter>
+      
+      {/* <Namelist></Namelist>
+        <Navbar></Navbar>
+        <NameDB></NameDB>
+      
       <Home></Home>
       <div className="">
           <h1>
@@ -36,6 +56,9 @@ function App() {
             </a>
           </p>
       </div>
+      */}
+
+    
     </div>
   );
 }
